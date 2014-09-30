@@ -1,0 +1,32 @@
+{
+    "name": "verticalhorizon/reactiveadmin",
+    "description": "Fast, flexible and secure admin interface for Laravel",
+    "homepage": "https://github.com/VerticalHorizon/ReactiveAdmin",
+    "keywords": ["administrator", "admin", "database", "laravel", "cms"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Denis Bozhenkov",
+            "email": "elf.marvin@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/VerticalHorizon/ReactiveAdmin/issues"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "laravel/framework": "4.*"
+    },
+    "require-dev": {
+        "mockery/mockery": "0.8.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/controllers"
+        ],
+        "psr-0": {
+            "VerticalHorizon\\ReactiveAdmin": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
