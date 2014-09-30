@@ -1,6 +1,6 @@
-<?php
+<?php namespace VerticalHorizon\ReactiveAdmin;
 
-class BaseController extends Controller {
+class AdminBaseController extends Controller {
 
 	public function __construct()
     {

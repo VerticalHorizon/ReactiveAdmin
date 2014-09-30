@@ -1,6 +1,8 @@
-<?php
+<?php	namespace VerticalHorizon\ReactiveAdmin;
 
-class AdminController extends BaseController {
+use VerticalHorizon\ReactiveAdmin\AdminBaseController as Controller;
+
+class AdminController extends Controller {
 
     protected $modelName;
     protected $viewsPath;
