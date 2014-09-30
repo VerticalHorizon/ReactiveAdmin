@@ -15,18 +15,18 @@
     },
     "require": {
         "php": ">=5.4.0",
-        "laravel/framework": "4.*"
+        "illuminate/support": "4.2.*"
     },
     "require-dev": {
         "mockery/mockery": "0.8.0"
     },
     "autoload": {
         "classmap": [
-            "src/controllers"
+            "src/migrations"
         ],
         "psr-0": {
-            "ReactiveAdmin": "src/"
+            "Verticalhorizon\\Reactiveadmin\\": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }

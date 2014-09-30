@@ -1,4 +1,4 @@
 ReactiveAdmin
 =============
 
-Fast, Flexible &amp; Secure Admin for Laravel4
+Fast, Flexible &amp; Secure Admin for Laravel
