@@ -15,18 +15,21 @@
     },
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "4.2.*"
+        "illuminate/support": "4.2.*",
+        "zizaco/confide": "~4.0@dev",
+        "intervention/image": "dev-master",
+        "twitter/bootstrap" : "3.3.2"
     },
     "require-dev": {
         "mockery/mockery": "0.8.0"
     },
     "autoload": {
         "classmap": [
-            "src/migrations"
+            "src/controllers"
         ],
         "psr-0": {
             "Verticalhorizon\\Reactiveadmin\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }

@@ -18,7 +18,14 @@ class ReactiveadminServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('verticalhorizon/reactiveadmin');
+		$this->package('verticalhorizon/reactiveadmin', 'reactiveadmin', __DIR__.'/../../');
+
+        // $this->commands(
+        //     'command.reactiveadmin.controller',
+        //     'command.reactiveadmin.routes'
+        // );
+
+		include __DIR__.'/../../routes.php';
 	}
 
 	/**
