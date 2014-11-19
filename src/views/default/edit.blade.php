@@ -1,4 +1,4 @@
-@extends('admin.root')
+@extends('reactiveadmin::root')
 
 {{-- Content --}}
 @section('content')
@@ -26,14 +26,14 @@
     @endif
 
         <div class="@if(isset($sidebar))col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 @endif main">
-          @include('admin.partials.notifications')
-          <h1 class="page-header">Edit @if($config['singular_title']){{{ '"'.$config['singular_title'].'"' }}}@else{{{ '"'.$row->name.'"' }}}@endif</h1>
+          @include('reactiveadmin::partials.notifications')
+          <h1 class="page-header">{{ trans('reactiveadmin::reactiveadmin.edit.title') }} @if($config['singular_title']){{{ '"'.$config['singular_title'].'"' }}}@else{{{ '"'.$row->name.'"' }}}@endif</h1>
 
           <!-- Tab panes -->
-          {{ Form::open(array('url' => array('admin/'.$view.'/'.$row->id), 'method' => 'put', 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data')) }}
+          {{ Form::open(array('url' => array(Config::get('reactiveadmin::uri').'/'.$view.'/'.$row->id), 'method' => 'put', 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data')) }}
 
 			      @foreach($config['edit_fields'] as $field => $attrs)
-          	  @include('admin.partials.fields.'.$attrs['type'], array('name' => $field, 'value' => Input::old($field) ? Input::old($field) : $row->$field, 'label' => $attrs['title']) )
+          	  @include('reactiveadmin::partials.fields.'.$attrs['type'], array('name' => $field, 'value' => Input::old($field) ? Input::old($field) : $row->$field, 'label' => $attrs['title']) )
           	@endforeach
 
             <div class="form-group">
