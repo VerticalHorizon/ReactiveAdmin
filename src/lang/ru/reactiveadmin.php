@@ -11,14 +11,18 @@ return array(
 
     'create'    => array(
         'title'     => 'Создать',
+        'cancel'    => 'Отмена',
     ),
     'show'      => array(
 
     ),
     'edit'      => array(
         'title'     => 'Редактировать',
+        'save'      => 'Сохранить',
+        'cancel'    => 'Отмена',
     ),
 
     'exit'      => 'Выход',
+    'close'     => 'Закрыть',
     'dashboard' => 'Панель',
 );

@@ -4,12 +4,14 @@ use VerticalHorizon\ReactiveAdmin\AdminBaseController as Controller;
 
 class AdminController extends Controller {
 
-    private $model_config_path;
+    public $layout = 'reactiveadmin::root';
 
     protected $modelName;
     protected $viewsPath;
     protected $uriSegment;
     protected $resourceId;
+
+    private $model_config_path;
 
     public function __construct()
     {
@@ -93,12 +95,11 @@ class AdminController extends Controller {
 
             }
 
-            return \View::make($this->viewsPath.'.index')
-                ->with('rows',  $rows);
+            $this->layout->content = \View::make($this->viewsPath.'.index')->with('rows',  $rows);
         }
         else
         {        
-            return \View::make('reactiveadmin::dashboard');
+            $this->layout->content = \View::make('reactiveadmin::dashboard');
         }
     }
 
@@ -109,7 +110,15 @@ class AdminController extends Controller {
      */
     public function create()
     {
-        return \View::make('admins.create');
+        if(\Request::ajax())
+        {
+            return \View::make('reactiveadmin::partials.create_ajax')
+                ->render();
+        }
+        else
+        {
+            $this->layout->content = \View::make($this->viewsPath.'.create');
+        }
     }
 
     /**
@@ -158,8 +167,16 @@ class AdminController extends Controller {
             :
             $obj::findOrFail((int)$this->resourceId);
 
-        return \View::make($this->viewsPath.'.edit')
-            ->with('row', $row);
+        if(\Request::ajax())
+        {
+            return \View::make('reactiveadmin::partials.edit_ajax')
+                ->with('row', $row)
+                ->render();
+        }
+        else
+        {
+            $this->layout->content = \View::make($this->viewsPath.'.edit')->with('row', $row);
+        }
     }
 
     /**
@@ -171,13 +188,13 @@ class AdminController extends Controller {
     public function update($id)
     {
         $obj = new $this->modelName();
-        method_exists($obj, 'withTrashed') ? 
+        $obj = method_exists($obj, 'withTrashed') ? 
             $obj::withTrashed()->findOrFail((int)$this->resourceId)
             :
             $obj::findOrFail((int)$this->resourceId);
 
         $obj->fill( array_filter(\Input::all(), function($v){ return $v !== null;}) );
-        
+
         // Note that all models we must extend from Ardent!
         if (method_exists($obj, 'updateUniques') ? $obj->updateUniques() : $obj->save()) {
             return \Redirect::to('admin/'.$this->uriSegment)
@@ -201,7 +218,7 @@ class AdminController extends Controller {
             :
             $obj::findOrFail((int)$this->resourceId)->delete();
 
-        return \Redirect::to(\Config::get('reactiveadmin::uri').'/'.$this->uriSegment)
+        return \Redirect::back()
            ->with('info', $this->modelName.' #<strong>'.$this->resourceId.'</strong> successfully deleted!');
     }
 
@@ -214,7 +231,7 @@ class AdminController extends Controller {
     public function trash($id)
     {
         call_user_func($this->modelName.'::destroy', $this->resourceId);
-        return \Redirect::to(\Config::get('reactiveadmin::uri').'/'.$this->uriSegment)
+        return \Redirect::back()
            ->with('info', $this->modelName.' #<strong>'.$this->resourceId.'</strong> successfully trashed!');
     }
 
@@ -229,8 +246,7 @@ class AdminController extends Controller {
         $obj = new $this->modelName();
         $obj::withTrashed()->findOrFail((int)$this->resourceId)->restore();
 
-        method_exists($obj, 'updateUniques') ? $obj->updateUniques() : $obj->save();
-        return \Redirect::to(\Config::get('reactiveadmin::uri').'/'.$this->uriSegment)
+        return \Redirect::back()
            ->with('info', $this->modelName.' #<strong>'.$this->resourceId.'</strong> successfully restored!');
     }
 }

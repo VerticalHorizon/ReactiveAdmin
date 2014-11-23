@@ -5,6 +5,14 @@
  */
 Route::group(array('prefix' => Config::get('reactiveadmin::uri'), 'before' => 'auth'), function()
 {
+    Route::get('/lang/{id}', function($id)
+    {
+        //dd(Config::get('reactiveadmin::locales')[$id]);
+        \App::setLocale(Config::get('reactiveadmin::locales')[$id]);
+        Lang::setLocale('en');
+        return \Redirect::back();
+    });
+
     Route::post('/{alias}/upload',          '\VerticalHorizon\ReactiveAdmin\AdminController@upload');
     Route::put('/{alias}/{id?}/upload',     '\VerticalHorizon\ReactiveAdmin\AdminController@upload');
     Route::delete('/upload',                '\VerticalHorizon\ReactiveAdmin\AdminController@upload');

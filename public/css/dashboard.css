@@ -24,6 +24,9 @@ body {
 .navbar-fixed-top {
   border: 0;
 }
+.navbar-fixed-top ul[role="lang"] {
+  min-width: inherit;
+}
 
 /*
  * Sidebar
@@ -111,6 +114,27 @@ body {
   list-style: none;
 }
 
-.table-striped td:last-child {
-  width: 13%;
-};
+.table-striped td.controls .btn-group {
+  width: 110px;
+}
+.table-striped td.list-checkbox {
+  width: 52px;
+}
+.table-hover>tbody>tr.text-muted {
+  color: #AAA;
+}
+.table-hover>tbody>tr:hover {
+  background-color: #D9EDF7;
+}
+.table-hover>tbody td:not(.list-checkbox) {
+  position: relative;
+  cursor: pointer;
+}
+/*.table-hover>tbody>tr>td:last-child .btn-group {
+  position: absolute;
+  top: 5px;
+  opacity: 0;
+}
+.table-hover>tbody>tr:hover>td:last-child>.btn-group {
+  opacity: 0.6;
+}*/

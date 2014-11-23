@@ -1,17 +1,16 @@
 // for Admin
 $(document).ready(function(){
     // router
-    var url = document.location.toString();
-    if (url.match('#')) {
-        $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
-    }
+    // var url = document.location.toString();
+    // if (url.match('#')) {
+    //     $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+    // }
+    // // Change hash for page-reload
+    // $('.nav-tabs a').on('shown.bs.tab', function (e) {
+    //     window.location.hash = e.target.hash;
+    // });
 
     $('[tooltip]').tooltip();
-
-    // Change hash for page-reload
-    $('.nav-tabs a').on('shown.bs.tab', function (e) {
-        window.location.hash = e.target.hash;
-    });
 
     // Change hash for page-reload
     $('div.table-responsive').on('change', '[name=sorting]', function (e) {
@@ -22,10 +21,49 @@ $(document).ready(function(){
         });
     });
 
-    $('#confirm_delete').on('show.bs.modal', function (e) {
+    $('#confirmDelete').on('show.bs.modal', function (e) {
         $(this).find('strong').text($(e.relatedTarget).data('id'));
         $(this).find('form').attr('action', $(e.relatedTarget).data('action'));
-    })
+    });
+
+    $('[data-toggle="modalEdit"]').on('click', function (event) {
+        var modal = $('#modalEdit')
+        var button = $(this);
+        $.get(window.location.pathname+'/'+button.parents('tr').data('id')+'/edit', function(data){
+            modal.find('form').attr('action', window.location.pathname+'/'+button.parents('tr').data('id'));
+            modal.find('.modal-body').html(data);
+            modal.modal('show');
+        });
+        return false;
+    });
+
+    $('[data-toggle="modalCreate"]').on('click', function (event) {
+        var modal = $('#modalCreate')
+        $.get(window.location.pathname+'/create', function(data){
+            modal.find('form').attr('action', window.location.pathname);
+            modal.find('.modal-body').html(data);
+            modal.modal('show');
+        });
+        return false;
+    });
+
+    $('body>.container-fluid').on('click', '.table-hover>tbody td:not(.list-checkbox):not(.controls)', function(event){
+        var modal = $('#modalEdit')
+        var button = $(this);
+        $.get(window.location.pathname+'/'+button.parents('tr').data('id')+'/edit', function(data){
+            modal.find('form').attr('action', window.location.pathname+'/'+button.parents('tr').data('id'));
+            modal.find('.modal-body').html(data);
+            modal.modal('show');
+        });
+        return false;
+    });
+
+    $('body>.container-fluid').on('change', '#checkAll', function(event){
+        window.console.log($(this).attr('checked'));
+        $(this).parents('table').find('tbody .list-checkbox input[type="checkbox"]').prop('checked', $(this).is(':checked') ? true : false);
+        return false;
+    });
+
 });
 
 function delete_row(elem)
@@ -46,18 +84,3 @@ function select_product(elem)
     $(elem).parents('.col-sm-7').find('input[type=number]').attr('name', 'contents['+$(elem).val()+'][quantity]');
     return false;
 }
-
-// angular code
-(function() {
-    var app = angular.module('admin');
-
-    app.controller('IndexController', ['$http', function($http){
-        var store = this;
-
-        store.products = [];
-
-        $http.get('/products.json').success(function(data){
-            store.products = data;
-        });
-    }]);
-})();

@@ -1,6 +1,6 @@
 <div class="form-group">
-    <label for="{{ $name }}" class="col-sm-1 control-label">{{ $attrs['title'] }}</label>
-    <div class="col-sm-7">
+    <label for="{{ $name }}" class="col-sm-2 control-label">{{ $attrs['title'] }}</label>
+    <div class="col-sm-10">
 
               <!-- The file upload form used as target for the file upload widget -->
               <div id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">

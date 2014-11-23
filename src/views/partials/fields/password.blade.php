@@ -1,6 +1,6 @@
 <div class="form-group">
-    <label for="{{ $name }}" class="col-sm-1 control-label">{{ $attrs['title'] }}</label>
-    <div class="col-sm-7">
+    <label for="{{ $name }}" class="col-sm-2 control-label">{{ $attrs['title'] }}</label>
+    <div class="col-sm-10">
         <input type="password" name="{{ $name }}" value="" class="form-control" id="{{ $name }}" placeholder="{{ $attrs['title'] }}">
     </div>
 </div>

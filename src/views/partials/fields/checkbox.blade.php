@@ -1,5 +1,5 @@
 <div class="form-group">
-    <div class="col-sm-offset-1 col-sm-7">
+    <div class="col-sm-offset-2 col-sm-10">
         <div class="checkbox-inline">
             <input type="hidden" name="{{ $name }}" value="0" >
             <label>
