@@ -7,9 +7,8 @@ Route::group(array('prefix' => Config::get('reactiveadmin::uri'), 'before' => 'a
 {
     Route::get('/lang/{id}', function($id)
     {
-        //dd(Config::get('reactiveadmin::locales')[$id]);
+        \Session::put('raa_locale',Config::get('reactiveadmin::locales')[$id]);
         \App::setLocale(Config::get('reactiveadmin::locales')[$id]);
-        Lang::setLocale('en');
         return \Redirect::back();
     });
 

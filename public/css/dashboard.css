@@ -27,6 +27,10 @@ body {
 .navbar-fixed-top ul[role="lang"] {
   min-width: inherit;
 }
+.navbar-nav .dropdown-menu .flag-icon {
+  box-shadow: 0px 0px 0px 2px #808080;
+  margin: 5px 0;
+}
 
 /*
  * Sidebar
@@ -114,14 +118,18 @@ body {
   list-style: none;
 }
 
+.table-striped thead th .glyphicon.active {
+  color:#C12E2A;
+}
 .table-striped td.controls .btn-group {
   width: 110px;
 }
 .table-striped td.list-checkbox {
   width: 52px;
 }
-.table-hover>tbody>tr.text-muted {
-  color: #AAA;
+.table-striped thead th .glyphicon, .table-hover>tbody>tr.text-muted {
+  color: #DDD;
+  text-decoration:none;
 }
 .table-hover>tbody>tr:hover {
   background-color: #D9EDF7;

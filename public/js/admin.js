@@ -33,6 +33,8 @@ $(document).ready(function(){
             modal.find('form').attr('action', window.location.pathname+'/'+button.parents('tr').data('id'));
             modal.find('.modal-body').html(data);
             modal.modal('show');
+        }).done(function(){
+            $('.chosen-select').chosen();
         });
         return false;
     });
@@ -54,9 +56,13 @@ $(document).ready(function(){
             modal.find('form').attr('action', window.location.pathname+'/'+button.parents('tr').data('id'));
             modal.find('.modal-body').html(data);
             modal.modal('show');
+        }).done(function(){
+            $('.chosen-select').chosen({width:"100%"});
         });
         return false;
     });
+
+    //$( document ).ajaxComplete(function( event,request, settings ) {});
 
     $('body>.container-fluid').on('change', '#checkAll', function(event){
         window.console.log($(this).attr('checked'));

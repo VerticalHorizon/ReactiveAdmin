@@ -27,9 +27,9 @@
         <div class="@if(isset($sidebar))col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 @endif main">
           @include('reactiveadmin::partials.notifications')
           <a href="{{ URL::to('admin/'.$view.'/create') }}" class="pull-right btn btn-success" data-toggle="modalCreate">
-            <span class="glyphicon glyphicon-plus-sign"></span> New
+            <span class="glyphicon glyphicon-plus-sign"></span> {{ trans('reactiveadmin::reactiveadmin.new') }}
           </a>
-          <h1 class="page-header">{{ $config['plural_title'] }}</h1>
+          <h1 class="page-header">{{ $config['plural_title'] }} <small>{{ $config['description'] }}</small></h1>
           @if(isset($rows) && count($rows))
           {{--*/ $isSoftDeleting = in_array('Illuminate\Database\Eloquent\SoftDeletingTrait', class_uses($rows->first())) ? true : false; /*--}}
           <div class="table-responsive">
@@ -40,7 +40,15 @@
                             <input name="" type="checkbox" id="checkAll">
                         </th>
                         @foreach($config['fields'] as $field => $attrs)
-                            <th>{{ isset($attrs['title']) ? $attrs['title'] : $field }} <a href="#" class="glyphicon glyphicon-chevron-down" style="color:#C12E2A;text-decoration:none;"></a href="#"></th>
+                            {{--*/
+                                $dir = 'desc';
+                                $active = false;
+                                if(Input::has('orderBy') && array_keys(Input::get('orderBy'))[0]==$field) {
+                                    $active = true;
+                                    $dir = Input::get('orderBy')[$field]=='desc'?'asc':'desc';
+                                }
+                            /*--}}
+                            <th>{{ isset($attrs['title']) ? $attrs['title'] : $field }} <a href="{{Request::url()}}?page={{ Input::get('page',1) }}&orderBy[{{$field}}]={{ $dir }}" class="glyphicon @if($dir=='asc')glyphicon-chevron-down @else glyphicon-chevron-up @endif @if($active) active @endif"></a></th>
                         @endforeach
                         <th></th>
                     </tr>

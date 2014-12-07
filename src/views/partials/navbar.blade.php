@@ -11,16 +11,6 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                @if(!empty($locales = Config::get('reactiveadmin::locales')))
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Lang::getLocale() }} <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="lang">
-                        @foreach ($locales as $key => $one)
-                        <li><a href="{{ URL::to(Config::get('reactiveadmin::uri'), 'lang').'/'.$key }}">{{ $one }}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
-                @endif
                 <li><a href="{{ URL::to(Config::get('reactiveadmin::uri')) }}">Admin</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -40,6 +30,16 @@
                         <li><a href="{{ URL::to('users/logout') }}"><span class="glyphicon glyphicon-off"></span> {{ trans('reactiveadmin::reactiveadmin.exit') }}</a></li>
                     </ul>
                 </li>
+                @if(!empty($locales = Config::get('reactiveadmin::locales')))
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="flag-icon {{ Lang::getLocale() }}" title="{{ Lang::getLocale() }}"></span></a>
+                    <ul class="dropdown-menu" role="lang">
+                        @foreach ($locales as $key => $one)
+                        <li><a href="{{ URL::to(Config::get('reactiveadmin::uri'), 'lang').'/'.$key }}"><span class="flag-icon {{ $one }}" title="{{ $one }}"></span></a></li>
+                        @endforeach
+                    </ul>
+                </li>
+                @endif
             </ul>
         </div>
     </div>

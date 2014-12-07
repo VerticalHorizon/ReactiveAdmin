@@ -46,9 +46,9 @@
             <input type="password" tabindex="2" name="password" required class="form-control" placeholder="{{{ Lang::get('confide::confide.password') }}}" required>
             <label class="checkbox" for="remember">
                 <input tabindex="4" type="checkbox" name="remember" id="remember" value="1"> {{{ Lang::get('confide::confide.login.remember') }}}
-                <input type="hidden" name="remember" value="0">
+                <input type="hidden" name="remember" value="0" tabindex="3">
             </label>
-            <button class="btn btn-lg btn-primary btn-block" tabindex="3" type="submit">{{{ Lang::get('confide::confide.login.submit') }}}</button>
+            <button class="btn btn-lg btn-primary btn-block" tabindex="4" type="submit">{{{ Lang::get('confide::confide.login.submit') }}}</button>
             <small>
                 <a href="{{{ URL::to('/users/forgot_password') }}}">{{{ Lang::get('confide::confide.login.forgot_password') }}}</a>
             </small>

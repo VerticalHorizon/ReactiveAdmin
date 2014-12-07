@@ -24,5 +24,6 @@ return array(
 
     'exit'      => 'Выход',
     'close'     => 'Закрыть',
+    'new'       => 'Создать',
     'dashboard' => 'Панель',
 );

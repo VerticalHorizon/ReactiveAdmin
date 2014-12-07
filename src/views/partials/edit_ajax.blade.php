@@ -2,9 +2,9 @@
     @include(
         'reactiveadmin::partials.fields.'.$attrs['type'],
         array(
-            'name'          => $field,
-            'value'         => Input::old($field) ? Input::old($field) : $row->$field,
-            'label'         => $attrs['title'],
+            'name'	=> $field,
+            'value' => Input::old($field) ? Input::old($field) : $row->$field,
+            'label' => $attrs['title'],
         )
     )
 @endforeach

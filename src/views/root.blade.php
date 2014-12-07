@@ -10,7 +10,7 @@
 
     <title>
         @section('title')
-            Admin - {{ $model ? $model : trans('reactiveadmin::reactiveadmin.dashboard') }}
+            {{ $model ? $model : trans('reactiveadmin::reactiveadmin.dashboard') }} | Admin
         @show
     </title>
     @section('styles')
@@ -19,6 +19,11 @@
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
+        <!-- Chosen for Bootstrap3 -->
+        {{ HTML::style('public/packages/Verticalhorizon/Reactiveadmin/js/vendor/chosen/chosen.min.css') }}
+        {{ HTML::style('public/packages/Verticalhorizon/Reactiveadmin/js/vendor/chosen/chosen-bootstrap.css') }}
+
+        {{ HTML::style('public/packages/Verticalhorizon/Reactiveadmin/css/flag-icons.css') }}
         {{ HTML::style('public/packages/Verticalhorizon/Reactiveadmin/css/dashboard.css') }}
     @show
 
@@ -45,11 +50,11 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         {{--<script>window.jQuery || document.write('<script src="{{ URL::to('public/js/vendor/jquery-1.11.0.min.js') }}"><\/script>')</script>--}}
-        {{-- HTML::script('public/packages/bootstrap/js/bootstrap.min.js') --}}
+
         <!-- Latest compiled and minified JavaScript -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        {{ HTML::script('public/packages/Verticalhorizon/Reactiveadmin/js/vendor/chosen/chosen.jquery.min.js') }}
         {{ HTML::script('public/packages/Verticalhorizon/Reactiveadmin/js/admin.js') }}
-
     @show
 
 </body>

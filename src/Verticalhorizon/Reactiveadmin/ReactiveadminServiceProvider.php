@@ -20,6 +20,7 @@ class ReactiveadminServiceProvider extends ServiceProvider {
 	{
 		$this->package('verticalhorizon/reactiveadmin', 'reactiveadmin', __DIR__.'/../../');
 
+		$this->app->setLocale(\Session::get('raa_locale', \Config::get('app.fallback_locale')));
         // $this->commands(
         //     'command.reactiveadmin.controller',
         //     'command.reactiveadmin.routes'

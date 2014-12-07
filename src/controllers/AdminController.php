@@ -75,7 +75,7 @@ class AdminController extends Controller {
                 method_exists($row, 'updateUniques') ? $row->updateUniques() : $row->save();
                 return Response::make('OK', 200);
             }
-
+            // TODO:
             if($filter = \Input::get('filter'))
             {
                 if(isset($filter['category.title']))
@@ -83,15 +83,16 @@ class AdminController extends Controller {
             }
             else
             {
-                if(isset($this->orderBy)) {
-                    $obj = new $this->modelName();
-                    $rows = $obj::orderBy($this->orderBy[0], $this->orderBy[1])->paginate(20);
+                // TODO: check if exists, validate: Eloquent/Ardent/Custom
+                $obj = new $this->modelName();
+                $obj = !method_exists($obj, 'withTrashed') ?: $obj::withTrashed();
+
+                if($orderBy = \Input::get('orderBy')) {
+                    list($field, $dir) = array_divide($orderBy);
+                    $obj = $obj->orderBy($field[0],$dir[0]);
                 }
-                else {
-                    // TODO: check if exists, validate: Eloquent/Ardent/Custom
-                    $obj = new $this->modelName();
-                    $rows = method_exists($obj, 'withTrashed') ? $obj::withTrashed()->paginate(20) : $obj::paginate(20);
-                }
+
+                $rows = $obj->paginate(20);
 
             }
 

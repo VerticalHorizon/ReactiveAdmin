@@ -36,7 +36,7 @@
 
         <div class="form-group">
             <div class="col-sm-12">
-                <button type="submit" class="btn btn-lg btn-primary pull-right">{{ trans('reactiveadmin::reactiveadmin.index.save') }}</button>
+                <button type="submit" class="btn btn-lg btn-primary pull-right">{{ trans('reactiveadmin::reactiveadmin.edit.save') }}</button>
             </div>
         </div>
         {{ Form::close() }}
