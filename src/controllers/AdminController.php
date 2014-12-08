@@ -92,7 +92,7 @@ class AdminController extends Controller {
                     $obj = $obj->orderBy($field[0],$dir[0]);
                 }
 
-                $rows = $obj->paginate(20);
+                $rows = method_exists($obj, 'paginate') ? $obj->paginate(20) : $obj->get();
 
             }
 

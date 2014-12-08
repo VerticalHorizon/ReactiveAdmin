@@ -8,14 +8,13 @@
             @include('reactiveadmin::partials.notifications')
             <h1 class="page-header">{{ trans('reactiveadmin::reactiveadmin.dashboard') }}</h1>
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <a href="admin/pages" class="thumbnail" style="position:relative; z-index:1;">
 
                     </a>
                 </div>
-
-            </div>
+            </div> -->
         </div>
 @stop
 

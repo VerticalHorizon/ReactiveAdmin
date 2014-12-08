@@ -29,7 +29,7 @@
           <a href="{{ URL::to('admin/'.$view.'/create') }}" class="pull-right btn btn-success" data-toggle="modalCreate">
             <span class="glyphicon glyphicon-plus-sign"></span> {{ trans('reactiveadmin::reactiveadmin.new') }}
           </a>
-          <h1 class="page-header">{{ $config['plural_title'] }} <small>{{ $config['description'] }}</small></h1>
+          <h1 class="page-header">{{ $config['plural_title'] }} @if(isset($config['description']))<small>{{ $config['description'] }}</small>@endif</h1>
           @if(isset($rows) && count($rows))
           {{--*/ $isSoftDeleting = in_array('Illuminate\Database\Eloquent\SoftDeletingTrait', class_uses($rows->first())) ? true : false; /*--}}
           <div class="table-responsive">

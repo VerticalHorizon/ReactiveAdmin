@@ -14,14 +14,23 @@
                 <li><a href="{{ URL::to(Config::get('reactiveadmin::uri')) }}">Admin</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Каталог <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ URL::to(Config::get('reactiveadmin::uri'), 'products') }}">Продукты</a></li>
-                        <li><a href="{{ URL::to(Config::get('reactiveadmin::uri'), 'categories') }}">Категории</a></li>
-                    </ul>
-                </li>
-                <li><a href="{{ URL::to(Config::get('reactiveadmin::uri'), 'pages') }}">Страницы</a></li>
+                @if($menu = Config::get('reactiveadmin::menu', array()))
+                    @foreach ($menu as $key1 => $value1)
+                        @if(is_array($value1))
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $key1 }} <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    @foreach ($value1 as $key2 => $value2)
+                                        <li><a href="{{ URL::to(Config::get('reactiveadmin::uri'), $key2) }}">{{ $value2 }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @else
+                            <li><a href="{{ URL::to(Config::get('reactiveadmin::uri'), $key1) }}">{{ $value1 }}</a></li>
+                        @endif
+                    @endforeach
+                @endif
+                <!--  -->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{{ Confide::user()->username }}} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">

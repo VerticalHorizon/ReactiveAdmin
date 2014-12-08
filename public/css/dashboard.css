@@ -146,3 +146,12 @@ body {
 .table-hover>tbody>tr:hover>td:last-child>.btn-group {
   opacity: 0.6;
 }*/
+
+alert-block {
+  position: absolute;
+  width: 50%;
+  margin-left: -25%;
+  left: 50%;
+  top: 2%;
+  z-index: 1031;
+}
