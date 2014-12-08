@@ -61,7 +61,11 @@
                         </td>
                         @foreach($config['fields'] as $field => $attrs)
                             @if(isset($attrs['field']))
-                                <td>{{{ $one->$field->$attrs['field'] }}}</td>
+                                @if(is_a($one->$field, 'Illuminate\Database\Eloquent\Collection'))
+                                    <td>{{{ implode(', ', array_fetch($one->$field->toArray(), $attrs['field'])) }}}</td>
+                                @else
+                                    <td>{{{ $one->$field->$attrs['field'] }}}</td>
+                                @endif
                             @else
                                 <td>{{{$one->$field}}}</td>
                             @endif

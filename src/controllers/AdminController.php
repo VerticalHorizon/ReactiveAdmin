@@ -85,14 +85,25 @@ class AdminController extends Controller {
             {
                 // TODO: check if exists, validate: Eloquent/Ardent/Custom
                 $obj = new $this->modelName();
-                $obj = !method_exists($obj, 'withTrashed') ?: $obj::withTrashed();
+
+                !method_exists($obj, 'withTrashed') ?: $obj = $obj::withTrashed();
 
                 if($orderBy = \Input::get('orderBy')) {
                     list($field, $dir) = array_divide($orderBy);
-                    $obj = $obj->orderBy($field[0],$dir[0]);
+                    call_user_func_array(array($obj, "orderBy"), array($field[0], $dir[0]));
+                    //$obj = $obj->orderBy($field[0],$dir[0]);
                 }
 
-                $rows = method_exists($obj, 'paginate') ? $obj->paginate(20) : $obj->get();
+                // normal or static call
+                if(get_class($obj)===$this->modelName) {
+                    if(method_exists($obj, 'paginate')) {
+                        $rows = call_user_func( $this->modelName.'::paginate', 20 );
+                    } else {
+                        $rows = call_user_func( $this->modelName.'::all');
+                    }
+                } else {
+                    $rows = method_exists($obj, 'paginate') ? $obj->paginate(20) : $obj->get();
+                }
 
             }
 
