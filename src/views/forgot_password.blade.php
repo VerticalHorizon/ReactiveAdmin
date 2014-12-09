@@ -14,7 +14,7 @@
         {{ HTML::style('public/packages/bootstrap/css/bootstrap.min.css') }}
 
         <!-- Custom styles for this template -->
-        {{ HTML::style('public/packages/Verticalhorizon/Reactiveadmin/css/signin.css') }}
+        {{ HTML::style('public/packages/verticalhorizon/reactiveadmin/css/signin.css') }}
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
