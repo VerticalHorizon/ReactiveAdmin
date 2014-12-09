@@ -20,11 +20,11 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
         <!-- Chosen for Bootstrap3 -->
-        {{ HTML::style('public/packages/rerticalhorizon/reactiveadmin/js/vendor/chosen/chosen.min.css') }}
-        {{ HTML::style('public/packages/rerticalhorizon/reactiveadmin/js/vendor/chosen/chosen-bootstrap.css') }}
+        {{ HTML::style('public/packages/verticalhorizon/reactiveadmin/js/vendor/chosen/chosen.min.css') }}
+        {{ HTML::style('public/packages/verticalhorizon/reactiveadmin/js/vendor/chosen/chosen-bootstrap.css') }}
 
-        {{ HTML::style('public/packages/rerticalhorizon/reactiveadmin/css/flag-icons.css') }}
-        {{ HTML::style('public/packages/rerticalhorizon/reactiveadmin/css/dashboard.css') }}
+        {{ HTML::style('public/packages/verticalhorizon/reactiveadmin/css/flag-icons.css') }}
+        {{ HTML::style('public/packages/verticalhorizon/reactiveadmin/css/dashboard.css') }}
     @show
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -53,8 +53,8 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        {{ HTML::script('public/packages/rerticalhorizon/reactiveadmin/js/vendor/chosen/chosen.jquery.min.js') }}
-        {{ HTML::script('public/packages/rerticalhorizon/reactiveadmin/js/admin.js') }}
+        {{ HTML::script('public/packages/verticalhorizon/reactiveadmin/js/vendor/chosen/chosen.jquery.min.js') }}
+        {{ HTML::script('public/packages/verticalhorizon/reactiveadmin/js/admin.js') }}
     @show
 
 </body>
