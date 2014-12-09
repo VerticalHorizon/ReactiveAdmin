@@ -20,11 +20,11 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
         <!-- Chosen for Bootstrap3 -->
-        {{ HTML::style('public/packages/Verticalhorizon/Reactiveadmin/js/vendor/chosen/chosen.min.css') }}
-        {{ HTML::style('public/packages/Verticalhorizon/Reactiveadmin/js/vendor/chosen/chosen-bootstrap.css') }}
+        {{ HTML::style('packages/Verticalhorizon/Reactiveadmin/js/vendor/chosen/chosen.min.css') }}
+        {{ HTML::style('packages/Verticalhorizon/Reactiveadmin/js/vendor/chosen/chosen-bootstrap.css') }}
 
-        {{ HTML::style('public/packages/Verticalhorizon/Reactiveadmin/css/flag-icons.css') }}
-        {{ HTML::style('public/packages/Verticalhorizon/Reactiveadmin/css/dashboard.css') }}
+        {{ HTML::style('packages/Verticalhorizon/Reactiveadmin/css/flag-icons.css') }}
+        {{ HTML::style('packages/Verticalhorizon/Reactiveadmin/css/dashboard.css') }}
     @show
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -49,12 +49,12 @@
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        {{--<script>window.jQuery || document.write('<script src="{{ URL::to('public/js/vendor/jquery-1.11.0.min.js') }}"><\/script>')</script>--}}
+        {{--<script>window.jQuery || document.write('<script src="{{ URL::to('js/vendor/jquery-1.11.0.min.js') }}"><\/script>')</script>--}}
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        {{ HTML::script('public/packages/Verticalhorizon/Reactiveadmin/js/vendor/chosen/chosen.jquery.min.js') }}
-        {{ HTML::script('public/packages/Verticalhorizon/Reactiveadmin/js/admin.js') }}
+        {{ HTML::script('packages/Verticalhorizon/Reactiveadmin/js/vendor/chosen/chosen.jquery.min.js') }}
+        {{ HTML::script('packages/Verticalhorizon/Reactiveadmin/js/admin.js') }}
     @show
 
 </body>

@@ -52,14 +52,14 @@
                                   <td>
                                     <input type="hidden" name="{{ $name }}[file][{{$i}}]" value="{{ $one }}">
                                     <span class="preview">
-                                            <a href="{{URL::to('public/files/'.$one)}}" title="{{ $one }}" download="{{ $one }}" data-gallery="">
-                                              <img src="{{URL::to('public/files/thumbnail/'.$one)}}">
+                                            <a href="{{URL::to('files/'.$one)}}" title="{{ $one }}" download="{{ $one }}" data-gallery="">
+                                              <img src="{{URL::to('files/thumbnail/'.$one)}}">
                                             </a>
                                     </span>
                                   </td>
                                   <td>
                                     <p class="name">
-                                      <a href="{{URL::to('public/files/'.$one)}}" title="{{ $one }}" download="{{ $one }}" data-gallery="">{{ $one }}</a>
+                                      <a href="{{URL::to('files/'.$one)}}" title="{{ $one }}" download="{{ $one }}" data-gallery="">{{ $one }}</a>
                                     </p>
                                     @if(isset($attrs['additional']))
                                         @foreach($attrs['additional'] as $k => $v)

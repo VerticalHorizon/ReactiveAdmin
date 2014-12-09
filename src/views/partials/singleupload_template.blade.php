@@ -10,7 +10,7 @@
                   @if(isset($image) && $image && File::exists(public_path('files/thumbnail/').$image))
                     <div class="form-group">
                         <div class="col-sm-7 col-sm-offset-1">
-                            <img src="{{ URL::to('public/files/thumbnail/'.$image) }}" alt="" class="img-thumbnail">
+                            <img src="{{ URL::to('files/thumbnail/'.$image) }}" alt="" class="img-thumbnail">
                         </div>
                     </div>
                   @endif
