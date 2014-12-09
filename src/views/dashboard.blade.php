@@ -20,5 +20,5 @@
 
 @section('scripts')
 @parent
-    {{ HTML::script('packages/Verticalhorizon/Reactiveadmin/js/vendor/html2canvas.js') }}
+    {{ HTML::script('public/packages/Verticalhorizon/Reactiveadmin/js/vendor/html2canvas.js') }}
 @stop

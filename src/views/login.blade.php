@@ -11,10 +11,10 @@
         <title>{{{ trans('confide::confide.login.title') }}}</title>
 
         <!-- Bootstrap core CSS -->
-        {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}
+        {{ HTML::style('public/packages/bootstrap/css/bootstrap.min.css') }}
 
         <!-- Custom styles for this template -->
-        {{ HTML::style('packages/Verticalhorizon/Reactiveadmin/css/signin.css') }}
+        {{ HTML::style('public/packages/Verticalhorizon/Reactiveadmin/css/signin.css') }}
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -22,7 +22,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{{ URL::to('js/vendor/jquery-1.11.0.min.js') }}"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="{{ URL::to('public/js/vendor/jquery-1.11.0.min.js') }}"><\/script>')</script>
     </head>
     <body>
         <div class="container">
@@ -56,8 +56,8 @@
         </div> <!-- /container -->
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        {{ HTML::script('assets/js/ie10-viewport-bug-workaround.js') }}
+        {{ HTML::script('public/assets/js/ie10-viewport-bug-workaround.js') }}
         <!-- Bootstrap core JS -->
-        {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
+        {{ HTML::script('public/packages/bootstrap/js/bootstrap.min.js') }}
     </body>
 </html>
