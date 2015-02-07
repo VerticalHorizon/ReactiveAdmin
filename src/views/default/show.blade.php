@@ -1,1 +1,1 @@
-C:\xampp\htdocs\Avtostoper\app/views/Admins/show.blade.php
+{{ var_dump($obj) }}

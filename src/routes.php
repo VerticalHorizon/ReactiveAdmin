@@ -5,19 +5,30 @@
  */
 Route::group(array('prefix' => Config::get('reactiveadmin::uri'), 'before' => 'auth'), function()
 {
-    Route::post('/{alias}/upload', 'Verticalhorizon\Reactiveadmin\AdminController@upload');
-    Route::put('/{alias}/{id?}/upload', 'Verticalhorizon\Reactiveadmin\AdminController@upload');
-    Route::delete('/upload', 'Verticalhorizon\Reactiveadmin\AdminController@upload');
+    Route::get('/lang/{id}', function($id)
+    {
+        \Session::put('raa_locale',Config::get('reactiveadmin::locales')[$id]);
+        \App::setLocale(Config::get('reactiveadmin::locales')[$id]);
+        return \Redirect::back();
+    });
 
-    Route::get('/{alias?}',                'Verticalhorizon\Reactiveadmin\AdminController@index');   //  model ? model : dashboard
-    Route::get('/{alias}/create',          'Verticalhorizon\Reactiveadmin\AdminController@create');
-    Route::get('/{alias}/{id}',            'Verticalhorizon\Reactiveadmin\AdminController@show');
-    Route::get('/{alias}/{id}/edit',       'Verticalhorizon\Reactiveadmin\AdminController@edit');
+    Route::post('/{alias}/upload',          '\VerticalHorizon\ReactiveAdmin\AdminController@upload');
+    Route::put('/{alias}/{id?}/upload',     '\VerticalHorizon\ReactiveAdmin\AdminController@upload');
+    Route::delete('/upload',                '\VerticalHorizon\ReactiveAdmin\AdminController@upload');
+
+    Route::get('/{alias?}',                 '\VerticalHorizon\ReactiveAdmin\AdminController@index');   //  model ? model : dashboard
+    Route::get('/{alias}/create',           '\VerticalHorizon\ReactiveAdmin\AdminController@create');
+    Route::get('/{alias}/{id}',             '\VerticalHorizon\ReactiveAdmin\AdminController@show');
+    Route::get('/{alias}/{id}/edit',        '\VerticalHorizon\ReactiveAdmin\AdminController@edit');
+
+    Route::get('/{alias}/{id}/trash',       '\VerticalHorizon\ReactiveAdmin\AdminController@trash');
+    Route::get('/{alias}/{id}/restore',     '\VerticalHorizon\ReactiveAdmin\AdminController@restore');
+
     Route::group(array('before' => 'csrf'), function()
     {
-        Route::post('/{alias}',                'Verticalhorizon\Reactiveadmin\AdminController@store');
-        Route::put('/{alias}/{id}',            'Verticalhorizon\Reactiveadmin\AdminController@update');
-        Route::delete('/{alias}/{id}/destroy', 'Verticalhorizon\Reactiveadmin\AdminController@destroy');
+        Route::post('/{alias}',                '\VerticalHorizon\ReactiveAdmin\AdminController@store');
+        Route::put('/{alias}/{id}',            '\VerticalHorizon\ReactiveAdmin\AdminController@update');
+        Route::delete('/{alias}/{id}/destroy', '\VerticalHorizon\ReactiveAdmin\AdminController@destroy');
     });
-    Route::resource('/', 'Verticalhorizon\Reactiveadmin\AdminController');
+    Route::resource('/',    '\VerticalHorizon\ReactiveAdmin\AdminController');
 });

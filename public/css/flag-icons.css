@@ -1,0 +1,71 @@
+.flag-icon {
+  background: url('../i/flat-flag-icons.jpg') no-repeat;
+  width: 30px;
+  height: 20px;
+  display: block;
+  border: none;
+  border-radius: 3px;
+}
+.flag-icon.af {
+  background-position: -5px -5px;
+}
+.flag-icon.al {
+  background-position: -5px -30px;
+}
+.flag-icon.dz {
+  background-position: -5px -55px;
+}
+.flag-icon.ad {
+  background-position: -5px -80px;
+}
+.flag-icon.ag {
+  background-position: -5px -105px;
+}
+.flag-icon.ar {
+  background-position: -5px -130px;
+}
+.flag-icon.am {
+  background-position: -5px -155px;
+}
+.flag-icon.au {
+  background-position: -5px -180px;
+}
+.flag-icon.at {
+  background-position: -5px -205px;
+}
+.flag-icon.az {
+  background-position: -5px -230px;
+}
+.flag-icon.bs {
+  background-position: -5px -255px;
+}
+.flag-icon.bh {
+  background-position: -5px -280px;
+}
+.flag-icon.bd {
+  background-position: -40px -5px;
+}
+.flag-icon.bb {
+  background-position: -40px -30px;
+}
+.flag-icon.by {
+  background-position: -40px -55px;
+}
+
+.flag-icon.bg {
+  background-position: -75px -5px;
+}
+
+.flag-icon.km {
+  background-position: -110px -5px;
+}
+
+.flag-icon.ga {
+  background-position: -180px -5px;
+}
+.flag-icon.en {
+  background-position: -530px -105px;
+}
+.flag-icon.ru {
+  background-position: -390px -255px;
+}

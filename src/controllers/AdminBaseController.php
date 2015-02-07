@@ -1,6 +1,6 @@
 <?php namespace VerticalHorizon\ReactiveAdmin;
 
-class AdminBaseController extends Controller {
+class AdminBaseController extends \Controller {
 
 	public function __construct()
     {
@@ -16,7 +16,7 @@ class AdminBaseController extends Controller {
 	{
 		if ( ! is_null($this->layout))
 		{
-			$this->layout = View::make($this->layout);
+			$this->layout = \View::make($this->layout);
 		}
 	}
 
